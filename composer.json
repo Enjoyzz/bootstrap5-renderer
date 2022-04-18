@@ -1,0 +1,32 @@
+{
+    "name": "enjoys/bootstrap5-renderer",
+    "description": "Renderer for enjoys/forms",
+    "license": "MIT",
+    "require": {
+        "php": ">= 8.0",
+        "enjoys/forms": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "infection/infection": "^0.26",
+        "fakerphp/faker": "^1.18",
+        "symfony/var-dumper": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Enjoys\\Forms\\Renderer\\Bootstrap5\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Enjoys\\Forms\\Renderer\\Bootstrap5\\": "tests/"
+        }
+    },
+    "scripts": {
+        "tests": "./vendor/bin/phpunit",
+        "infection": [
+            "Composer\\Config::disableProcessTimeout",
+            "XDEBUG_MODE=coverage ./vendor/bin/infection --logger-html='mutation-report.html'"
+        ]
+    }
+}
