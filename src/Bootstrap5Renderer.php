@@ -24,7 +24,7 @@ class Bootstrap5Renderer implements RendererInterface
         Submit::class => Elements\Submit::class,
         Image::class => Elements\Image::class,
         Reset::class => Elements\Reset::class,
-      //  File::class => Elements\File::class,
+        Range::class => Elements\Range::class,
         Radio::class => [
             Elements\Radio::class,
             Elements\Checkbox::class

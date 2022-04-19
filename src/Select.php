@@ -9,7 +9,7 @@ namespace Enjoys\Forms\Renderer\Bootstrap5;
 use Enjoys\Forms\Element;
 use Enjoys\Forms\Elements\Optgroup;
 
-class Select extends Input
+class Select extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
 {
     public function __construct(Element $element)
     {
