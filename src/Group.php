@@ -11,14 +11,16 @@ use Enjoys\Forms\Renderer\Html\HtmlRenderer;
 
 class Group extends Input
 {
+
+    public const ATTRIBUTES_GROUP = '_group_attributes_';
+
     protected function bodyRender(Element $element): string
     {
-//        $element->addClass('form-group');
-//        $return = sprintf("<div%s>", $element->getAttributesString());
         $return='';
         /** @var \Enjoys\Forms\Elements\Group $element */
         foreach ($element->getElements() as $data) {
-            $return .= "<div class='col'>";
+            $data->addClass('col', self::ATTRIBUTES_GROUP);
+            $return .= sprintf("<div%s>", $data->getAttributesString(self::ATTRIBUTES_GROUP));
             $return .= Bootstrap5Renderer::createTypeRender($data)->render();
             $return .= '</div>';
         }

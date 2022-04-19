@@ -6,6 +6,7 @@ use Enjoys\Forms\Elements\Select;
 use Enjoys\Forms\Elements\Text;
 use Enjoys\Forms\Form;
 use Enjoys\Forms\Renderer\Bootstrap5\Bootstrap5Renderer;
+use Enjoys\Forms\Renderer\Bootstrap5\Group;
 use Enjoys\Forms\Rules;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -22,7 +23,11 @@ $form->text('text_foo1', $faker->sentence(2))
 ;
 
 $form->group('Group Label', 'group_id')->add([
-    (new Text('text_foo2', $faker->sentence(1)))->addRule(Rules::REQUIRED)->setDescription($faker->paragraph(1)),
+    (new Text('text_foo2', $faker->sentence(1)))
+        ->addRule(Rules::REQUIRED)
+        ->setDescription($faker->paragraph(1))
+    ->addClass('col-md-1', Group::ATTRIBUTES_GROUP)
+    ,
     (new Select('select_foo1', $faker->sentence(2)))->fill($faker->sentences(5)),
     (new Text('text_foo3', $faker->sentence(3)))
         ->setAttr(AttributeFactory::create('placeholder', $faker->sentence(2)))
