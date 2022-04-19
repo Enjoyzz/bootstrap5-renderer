@@ -1,5 +1,5 @@
 <?php
-$f=preg_replace('/\/$/','',__DIR__."{$_SERVER['REQUEST_URI']}");
+$f=preg_replace('/\/$/','',__DIR__."/example/{$_SERVER['REQUEST_URI']}");
 if(is_dir($f)){
     $abf=preg_replace('/\/$/','',$_SERVER['REQUEST_URI']);
     $fs=glob("$f/*");

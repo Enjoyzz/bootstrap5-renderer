@@ -18,24 +18,21 @@ $request = new ServerRequestWrapper(ServerRequestCreator::createFromGlobals());
 $form = new Form();
 
 
-$form->text('text1', 'type=text / base');
-
-$form->text('text2', 'type=text / with description')
-    ->setDescription($faker->paragraph)
-;
-
-$form->text('text3', 'type=text / with placeholder')
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
-;
-
-$form->text('text4', 'type=text / with placeholder, description and rule')
-    ->setDescription($faker->paragraph)
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
-    ->addRule(Rules::REQUIRED)
-;
-
-//$form->text(uniqid(), 'type=text / with error')->setRuleError(sprintf('Error #%d', $faker->randomDigit()));
-
+$form->header('HTML5 inputs');
+$form->color('color1', 'Color');
+$form->date('date1', 'Date');
+$form->datetime('datetime1', 'DateTime');
+$form->datetimelocal('datetimelocal1', 'DateTime Local');
+$form->email('email1', 'E-mail');
+$form->email('email2', 'E-mail / multiple')->setAttr(AttributeFactory::create('multiple'))->setDescription('Список e-mail вводится через запятую');
+$form->month('month1', 'Month');
+$form->number('number1', 'Number');
+$form->range('range1', 'Range');
+$form->search('search1', 'Search');
+$form->tel('tel1', 'Tel');
+$form->time('time1', 'Time');
+$form->url('url1', 'Url');
+$form->week('week1', 'Week');
 
 $form->submit(uniqid());
 

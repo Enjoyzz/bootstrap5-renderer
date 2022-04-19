@@ -1,6 +1,7 @@
 <?php
 
 use Enjoys\Forms\AttributeFactory;
+use Enjoys\Forms\Captcha\Defaults\Defaults;
 use Enjoys\Forms\Elements\Button;
 use Enjoys\Forms\Elements\Select;
 use Enjoys\Forms\Elements\Text;
@@ -18,24 +19,14 @@ $request = new ServerRequestWrapper(ServerRequestCreator::createFromGlobals());
 $form = new Form();
 
 
-$form->text('text1', 'type=text / base');
-
-$form->text('text2', 'type=text / with description')
-    ->setDescription($faker->paragraph)
-;
-
-$form->text('text3', 'type=text / with placeholder')
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
-;
-
-$form->text('text4', 'type=text / with placeholder, description and rule')
-    ->setDescription($faker->paragraph)
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
-    ->addRule(Rules::REQUIRED)
-;
-
-//$form->text(uniqid(), 'type=text / with error')->setRuleError(sprintf('Error #%d', $faker->randomDigit()));
-
+$form->header('Captcha');
+$captcha = new Defaults();
+$captcha->setOptions([
+    'size' => 3,
+    'width'=>100,
+    'height'=>30
+]);
+$form->captcha($captcha);
 
 $form->submit(uniqid());
 
@@ -52,6 +43,8 @@ if (!$form->isSubmitted()) {
     echo include __DIR__.'/.assets.php';
 
     echo sprintf('<div class="container">%s</div>', $renderer->output());
+} else {
+    echo 'Форма валидна и отправлена';
 }
 
 
