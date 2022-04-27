@@ -6,18 +6,15 @@ namespace Enjoys\Forms\Renderer\Bootstrap5;
 
 use Enjoys\Forms\AttributeFactory;
 use Enjoys\Forms\Element;
+use Enjoys\Forms\Elements;
 use Enjoys\Forms\Elements\Hidden;
 use Enjoys\Forms\Form;
 use Enjoys\Forms\Helper;
-use Enjoys\Forms\Interfaces\RendererInterface;
 use Enjoys\Forms\Interfaces\TypeRenderInterface;
-use Enjoys\Forms\Traits\RendererTrait;
-use Enjoys\Forms\Elements;
+use Enjoys\Forms\Renderer\AbstractRenderer;
 
-class Bootstrap5Renderer implements RendererInterface
+class Bootstrap5Renderer extends AbstractRenderer
 {
-
-    use RendererTrait;
 
     private const _MAP_ = [
         Button::class => Elements\Button::class,
@@ -42,7 +39,7 @@ class Bootstrap5Renderer implements RendererInterface
     {
         return sprintf(
             "<form%s>\n%s\n%s\n</form>",
-            $this->form->getAttributesString(),
+            $this->getForm()->getAttributesString(),
             $this->rendererHiddenElements(),
             $this->rendererElements()
         );
