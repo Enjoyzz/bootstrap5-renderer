@@ -24,7 +24,7 @@ $form->date('date1', 'Date');
 $form->datetime('datetime1', 'DateTime');
 $form->datetimelocal('datetimelocal1', 'DateTime Local');
 $form->email('email1', 'E-mail');
-$form->email('email2', 'E-mail / multiple')->setAttr(AttributeFactory::create('multiple'))->setDescription('Список e-mail вводится через запятую');
+$form->email('email2', 'E-mail / multiple')->setAttribute(AttributeFactory::create('multiple'))->setDescription('Список e-mail вводится через запятую');
 $form->month('month1', 'Month');
 $form->number('number1', 'Number');
 $form->range('range1', 'Range');

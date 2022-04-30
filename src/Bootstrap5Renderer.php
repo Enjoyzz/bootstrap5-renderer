@@ -62,16 +62,16 @@ class Bootstrap5Renderer extends AbstractRenderer
         $html = [];
         foreach ($this->getForm()->getElements() as $element) {
             if (method_exists($element, 'getDescription') && !empty($element->getDescription())) {
-                $element->setAttrs(
+                $element->setAttributes(
                     AttributeFactory::createFromArray([
-                        'id' => $element->getAttr('id')->getValueString() . 'Help',
+                        'id' => $element->getAttribute('id')->getValueString() . 'Help',
                         'class' => 'form-text'
                     ]),
                     Form::ATTRIBUTES_DESC
                 );
-                $element->setAttrs(
+                $element->setAttributes(
                     AttributeFactory::createFromArray([
-                        'aria-describedby' => $element->getAttr('id', Form::ATTRIBUTES_DESC)->getValueString()
+                        'aria-describedby' => $element->getAttribute('id', Form::ATTRIBUTES_DESC)->getValueString()
                     ])
                 );
             }

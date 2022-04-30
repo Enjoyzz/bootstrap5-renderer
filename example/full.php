@@ -30,7 +30,7 @@ $form->group('Group Label', 'group_id')->add([
     ,
     (new Select('select_foo1', $faker->sentence(2)))->fill($faker->sentences(5)),
     (new Text('text_foo3', $faker->sentence(3)))
-        ->setAttr(AttributeFactory::create('placeholder', $faker->sentence(2)))
+        ->setAttribute(AttributeFactory::create('placeholder', $faker->sentence(2)))
         ->setDescription($faker->paragraph())->addRule(Rules::REQUIRED),
     new Button('btn', $faker->sentence(2) . ' <b>' . $faker->sentence(1) . '</b>')
 ]);
@@ -77,7 +77,7 @@ $form->file('file_name', $faker->word())->addRule(Rules::UPLOAD, params: ['requi
 ;
 
 $form->file('file_name2')
-    ->addAttrs(
+    ->addAttributes(
         AttributeFactory::createFromArray([
             'placeholder' => $faker->word(),
             'multiple'

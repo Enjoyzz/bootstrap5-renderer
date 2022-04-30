@@ -25,12 +25,12 @@ $form->text('text2', 'type=text / with description')
 ;
 
 $form->text('text3', 'type=text / with placeholder')
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
+    ->setAttribute(AttributeFactory::create('placeholder', $faker->paragraph))
 ;
 
 $form->text('text4', 'type=text / with placeholder, description and rule')
     ->setDescription($faker->paragraph)
-    ->setAttr(AttributeFactory::create('placeholder', $faker->paragraph))
+    ->setAttribute(AttributeFactory::create('placeholder', $faker->paragraph))
     ->addRule(Rules::REQUIRED)
 ;
 

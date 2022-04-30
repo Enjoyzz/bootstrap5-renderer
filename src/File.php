@@ -27,12 +27,12 @@ class File extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
             $element->addClass('invalid-feedback d-block', Form::ATTRIBUTES_VALIDATE);
         }
 
-        if (null === $placeholder = $element->getAttr('placeholder')) {
+        if (null === $placeholder = $element->getAttribute('placeholder')) {
             $placeholder = AttributeFactory::create('placeholder', 'Choose file');
         }
         $this->placeholder = $placeholder;
 
-        $element->removeAttr('placeholder');
+        $element->removeAttribute('placeholder');
 
         parent::__construct($element);
     }
@@ -43,8 +43,8 @@ class File extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
 
 
 
-        if (null !== $idAttribute = $this->getElement()->getAttr('id')) {
-            $this->getElement()->setAttr($idAttribute->withName('for'), 'placeholder');
+        if (null !== $idAttribute = $this->getElement()->getAttribute('id')) {
+            $this->getElement()->setAttribute($idAttribute->withName('for'), 'placeholder');
         }
         return sprintf(
             '<label%s>%s</label>',
