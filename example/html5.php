@@ -37,7 +37,7 @@ $form->week('week1', 'Week');
 $form->submit(uniqid());
 
 if ($form->isSubmitted(false)) {
-    dump($request->getPostData()->getAll());
+    dump($request->getPostData()->toArray());
 }
 
 

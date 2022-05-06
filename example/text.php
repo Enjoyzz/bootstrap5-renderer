@@ -40,7 +40,7 @@ $form->text('text4', 'type=text / with placeholder, description and rule')
 $form->submit(uniqid());
 
 if ($form->isSubmitted(false)) {
-    dump($request->getPostData()->getAll());
+    dump($request->getPostData()->toArray());
 }
 
 

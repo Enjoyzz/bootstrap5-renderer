@@ -10,8 +10,8 @@ use Enjoys\Forms\Elements;
 use Enjoys\Forms\Elements\Hidden;
 use Enjoys\Forms\Form;
 use Enjoys\Forms\Helper;
-use Enjoys\Forms\Interfaces\TypeRenderInterface;
 use Enjoys\Forms\Renderer\AbstractRenderer;
+use Enjoys\Forms\Renderer\Html\TypesRender\TypeRenderInterface;
 
 class Bootstrap5Renderer extends AbstractRenderer
 {

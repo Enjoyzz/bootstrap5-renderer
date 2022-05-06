@@ -90,6 +90,8 @@ $form->textarea('textares1', $faker->word())->setValue($faker->paragraphs(2, tru
 $form->submit('sbmt1', $faker->sentence(1));
 $form->reset('reset1', $faker->sentence(2));
 
+
+
 if (!$form->isSubmitted()) {
     $renderer = new Bootstrap5Renderer();
     $renderer->setForm($form);
