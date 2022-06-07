@@ -8,6 +8,7 @@ namespace Enjoys\Forms\Renderer\Bootstrap5;
 
 use Enjoys\Forms\Element;
 use Enjoys\Forms\Elements\Optgroup;
+use Enjoys\Forms\Form;
 
 class Select extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
 {
@@ -15,6 +16,12 @@ class Select extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
     {
         $element->addClass('form-select');
         parent::__construct($element);
+
+        if (method_exists($element, 'isRuleError') && $element->isRuleError()) {
+            $element->addClass('is-invalid text-danger');
+            $element->addClass('text-danger', Form::ATTRIBUTES_LABEL);
+            $element->addClass('invalid-feedback d-block', Form::ATTRIBUTES_VALIDATE);
+        }
     }
 
     public function render(): string
