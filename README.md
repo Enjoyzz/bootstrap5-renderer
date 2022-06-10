@@ -4,7 +4,8 @@ Renderer for enjoys/forms
 
 ## Run built-in server for view example
 ```shell
-php -S localhost:8000 -t ./example .route
+port=$(shuf -i 2048-65000 -n 1);
+php -S localhost:"${port}" -t ./example .route
 ```
 
 ## Usage
