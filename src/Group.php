@@ -30,9 +30,11 @@ class Group extends Input
 
     public function render(): string
     {
+        $this->getElement()->addClass('row')->removeClass('form-control');
         return sprintf(
-            "%s\n<div class='row'>%s\n%s\n%s</div>",
+            "%s\n<div%s>%s\n%s\n%s</div>",
             $this->labelRender(),
+            $this->getElement()->getAttributesString(),
             $this->bodyRender($this->getElement()),
             $this->descriptionRender(),
             $this->validationRender(),
