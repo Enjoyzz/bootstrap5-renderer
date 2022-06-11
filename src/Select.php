@@ -15,6 +15,8 @@ class Select extends \Enjoys\Forms\Renderer\Html\TypesRender\Input
     public function __construct(Element $element)
     {
         $element->addClass('form-select');
+        $element->addClass('form-label', Form::ATTRIBUTES_LABEL);
+
         parent::__construct($element);
 
         if (method_exists($element, 'isRuleError') && $element->isRuleError()) {
