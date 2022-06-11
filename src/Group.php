@@ -7,7 +7,7 @@ namespace Enjoys\Forms\Renderer\Bootstrap5;
 
 
 use Enjoys\Forms\Element;
-use Enjoys\Forms\Renderer\Html\HtmlRenderer;
+use Enjoys\Forms\Renderer\Html\TypesRender\Input;
 
 class Group extends Input
 {
@@ -24,13 +24,12 @@ class Group extends Input
             $return .= Bootstrap5Renderer::createTypeRender($data)->render();
             $return .= '</div>';
         }
-//        $return .= '</div>';
         return $return;
     }
 
     public function render(): string
     {
-        $this->getElement()->addClass('row')->removeClass('form-control');
+        $this->getElement()->addClass('row');
         return sprintf(
             "%s\n<div%s>%s\n%s\n%s</div>",
             $this->labelRender(),
