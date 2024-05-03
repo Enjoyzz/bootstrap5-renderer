@@ -11,10 +11,10 @@ use Enjoys\Forms\Elements\Hidden;
 use Enjoys\Forms\Form;
 use Enjoys\Forms\Helper;
 use Enjoys\Forms\Interfaces\ElementInterface;
-use Enjoys\Forms\Renderer\AbstractRenderer;
 use Enjoys\Forms\Renderer\Html\TypesRender\TypeRenderInterface;
+use Enjoys\Forms\Renderer\Renderer;
 
-class Bootstrap5Renderer extends AbstractRenderer
+class Bootstrap5Renderer extends Renderer
 {
 
     private const _MAP_ = [
